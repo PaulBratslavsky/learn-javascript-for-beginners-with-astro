@@ -1,48 +1,43 @@
-# Astro Starter Kit: Basics
+# Building a Simple Card Carousel with Astro
 
-```sh
-npm create astro@latest -- --template basics
+In this tutorial, we will walk through the process of creating a simple card carousel using Astro. This carousel will display a series of images and titles, allowing users to click on a card to make it active and automatically cycling through the cards every few seconds.
+
+## Prerequisites
+
+Before we start, make sure you have the following:
+
+- Basic understanding of JavaScript and HTML
+- Node.js installed on your machine
+- An Astro project set up
+
+## Step 1: Setting Up the Project
+
+First, create a new Astro project if you haven't already:
+
+```bash
+npm create astro@latest
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Follow the prompts to set up your project. Once your project is ready, navigate to the project directory:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+cd your-project-name
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Step 2: Creating the Card Component
 
-## 🧞 Commands
+Create a new file named `CardCarousel.astro` in the `src/components` directory. This file will contain our card carousel code.
 
-All commands are run from the root of the project, from a terminal:
+### CardCarousel.astro
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Step 2: Creating the Card Component
 
-## 👀 Want to learn more?
+```astro
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+```
+
+
+# learn-javascript-for-beginners-with-astro
