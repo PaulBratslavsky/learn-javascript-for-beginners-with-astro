@@ -1,0 +1,124 @@
+---
+
+interface Card {
+  id: number;
+  title: string;
+  image: string;
+}
+
+interface Props {
+  cards: Card[];
+}
+
+const { cards }: Props = Astro.props;
+---
+
+<div class="cards-container">
+  {
+    cards.map((card) => (
+      <div class="card active">
+        <img src={card.image} alt={card.title} />
+        <h3>{card.title}</h3>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .cards-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0 auto;
+  }
+
+  .card {
+    cursor: pointer;
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0.75;
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    h3 {
+      z-index: 1;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      padding: 10px;
+
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 24px;
+      margin-left: 10px;
+      border-radius: 5px;
+    }
+
+    transition:
+      flex 0.9s ease,
+      opacity 0.9s ease;
+  }
+
+  .card.active {
+    flex: 6;
+    opacity: 1;
+  }
+
+  .card:not(.active) {
+    flex: 1;
+    opacity: 0.75;
+  }
+</style>
+
+<script>
+  (() => {
+    const TIMER_DURATION = 3000;
+    const cards = document.querySelectorAll(".card");
+
+    let interval: ReturnType<typeof setInterval> | null = null;
+    let currentIndex = 0; // Track the current card index
+
+    function toggleActive(card: HTMLElement, cards: NodeListOf<Element>) {
+      // Remove 'active' class from all cards
+      cards.forEach((c) => c.classList.remove("active"));
+      // Add 'active' class to the clicked card
+      card.classList.add("active");
+      currentIndex = Array.from(cards).indexOf(card); // Update current index
+    }
+
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        toggleActive(card as HTMLElement, cards);
+        pauseTimer();
+      });
+    });
+
+    function pauseTimer() {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+        // Restart the timer after 5 seconds from the current index
+        setTimeout(loopCards, TIMER_DURATION);
+      }
+    }
+
+    function loopCards() {
+      interval = setInterval(() => {
+        toggleActive(cards[currentIndex] as HTMLElement, cards);
+        currentIndex = (currentIndex + 1) % cards.length; // Update index for next card
+      }, TIMER_DURATION);
+    }
+
+    loopCards();
+  })();
+</script>

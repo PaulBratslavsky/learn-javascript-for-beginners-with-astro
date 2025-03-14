@@ -1,11 +1,76 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import CardCarousel from '../components/CardCarousel.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const natureCards = [
+  {
+    id: 1,
+    title: "Photo 1",
+    image:
+      "https://images.pexels.com/photos/8065955/pexels-photo-8065955.jpeg",
+  },
+  {
+    id: 2,
+    title: "Photo 2",
+    image:
+      "https://images.pexels.com/photos/8577762/pexels-photo-8577762.jpeg",
+  },
+  {
+    id: 3,
+    title: "Photo 3",
+    image:
+      "https://images.pexels.com/photos/23878596/pexels-photo-23878596/free-photo-of-moss-melody-nature-s-carpet.jpeg",
+  },
+  {
+    id: 4,
+    title: "Photo 4",
+    image:
+      "https://images.pexels.com/photos/31034045/pexels-photo-31034045/free-photo-of-mount-fuji-with-blooming-blue-flowers-in-spring.jpeg",
+  },
+  {
+    id: 5,
+    title: "Photo 5",
+    image:
+      "https://images.pexels.com/photos/8065955/pexels-photo-8065955.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  },
+];
+
+const architectureCards = [
+  {
+    id: 1,
+    title: "Photo 1",
+    image:
+      "https://images.pexels.com/photos/262367/pexels-photo-262367.jpeg",
+  },
+  {
+    id: 2,
+    title: "Photo 2",
+    image:
+      "https://images.pexels.com/photos/534174/pexels-photo-534174.jpeg",
+  },
+  {
+    id: 3,
+    title: "Photo 3",
+    image:
+      "https://images.pexels.com/photos/1874636/pexels-photo-1874636.jpeg",
+  },
+  {
+    id: 4,
+    title: "Photo 4",
+    image:
+      "https://images.pexels.com/photos/417273/pexels-photo-417273.jpeg",
+  },
+  {
+    id: 5,
+    title: "Photo 5",
+    image:
+      "https://images.pexels.com/photos/157811/pexels-photo-157811.jpeg",
+  },
+];
+
 ---
 
 <Layout>
-	<Welcome />
+	<CardCarousel cards={architectureCards} objectFit="cover" />
+	<CardCarousel cards={natureCards} objectFit="scale-down" />
 </Layout>
